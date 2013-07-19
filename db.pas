@@ -1,4 +1,4 @@
-{$reference mysql.data.dll}
+п»ї{$reference mysql.data.dll}
 
 uses
   MySql.Data.MySqlClient, MySql, MySql.Data;
@@ -18,10 +18,10 @@ begin
   connect.Open();
   MyReader := query.ExecuteReader();
   if flag then begin
-    write('id библиотеки':15);
-    write('название':15);
-    write('город':15);
-    write('страна':15);
+    write('id Р±РёР±Р»РёРѕС‚РµРєРё':15);
+    write('РЅР°Р·РІР°РЅРёРµ':15);
+    write('РіРѕСЂРѕРґ':15);
+    write('СЃС‚СЂР°РЅР°':15);
     writeln;
     while MyReader.Read() do 
     begin
@@ -34,14 +34,14 @@ begin
   end
   else
   begin
-    write('введите адрес файла (при совпадении имён существующий файл будет перезаписан): ');
+    write('РІРІРµРґРёС‚Рµ Р°РґСЂРµСЃ С„Р°Р№Р»Р° (РїСЂРё СЃРѕРІРїР°РґРµРЅРёРё РёРјС‘РЅ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ С„Р°Р№Р» Р±СѓРґРµС‚ РїРµСЂРµР·Р°РїРёСЃР°РЅ): ');
     readln(path);
     assign(textFile, path);
     rewrite(textFile);
-    write(textFile, 'id библиотеки':15);
-    write(textFile, 'название':15);
-    write(textFile, 'город':15);
-    writeln(textFile, 'страна':15);
+    write(textFile, 'id Р±РёР±Р»РёРѕС‚РµРєРё':15);
+    write(textFile, 'РЅР°Р·РІР°РЅРёРµ':15);
+    write(textFile, 'РіРѕСЂРѕРґ':15);
+    writeln(textFile, 'СЃС‚СЂР°РЅР°':15);
     writeln(textFile, '---------------------------------------------------------------------------');
     while MyReader.Read() do 
     begin
@@ -66,11 +66,11 @@ var
   MyReader: MySqlDataReader;
   name, city, country: string;
 begin
-  write('название библиотеки: ');
+  write('РЅР°Р·РІР°РЅРёРµ Р±РёР±Р»РёРѕС‚РµРєРё: ');
   readln(name);
-  write('страна: ');
+  write('СЃС‚СЂР°РЅР°: ');
   readln(country);
-  write('населённый пункт: ');
+  write('РЅР°СЃРµР»С‘РЅРЅС‹Р№ РїСѓРЅРєС‚: ');
   readln(city);
   connect := new MySqlConnection('Database=libraries;Data Source=localhost;User Id=xfynx;Password=bushsuxx');
   query := new MySqlCommand();
@@ -90,13 +90,13 @@ var
   MyReader: MySqlDataReader;
   name, city, country, id: string;
 begin
-  write('номер библиотеки: ');
+  write('РЅРѕРјРµСЂ Р±РёР±Р»РёРѕС‚РµРєРё: ');
   readln(id);
-  write('название библиотеки: ');
+  write('РЅР°Р·РІР°РЅРёРµ Р±РёР±Р»РёРѕС‚РµРєРё: ');
   readln(name);
-  write('страна: ');
+  write('СЃС‚СЂР°РЅР°: ');
   readln(country);
-  write('населённый пункт: ');
+  write('РЅР°СЃРµР»С‘РЅРЅС‹Р№ РїСѓРЅРєС‚: ');
   readln(city);
   connect := new MySqlConnection('Database=libraries;Data Source=localhost;User Id=xfynx;Password=bushsuxx');
   query := new MySqlCommand();
@@ -116,7 +116,7 @@ var
   MyReader: MySqlDataReader;
   n: string;
 begin
-  write('номер библиотеки: ');
+  write('РЅРѕРјРµСЂ Р±РёР±Р»РёРѕС‚РµРєРё: ');
   readln(n);
   connect := new MySqlConnection('Database=libraries;Data Source=localhost;User Id=xfynx;Password=bushsuxx');
   query := new MySqlCommand();
@@ -145,13 +145,13 @@ begin
     1: query.CommandText := 'select * from books';
     2: 
       begin
-        write('номер библиотеки: '); readln(id_lib);
-        write('название: '); readln(name);
-        write('автор: '); readln(author);
-        write('серия: '); readln(series);
-        write('количество: '); readln(counts);
-        write('год издания: '); readln(years);
-        write('код издателя: '); readln(id_pub);
+        write('РЅРѕРјРµСЂ Р±РёР±Р»РёРѕС‚РµРєРё: '); readln(id_lib);
+        write('РЅР°Р·РІР°РЅРёРµ: '); readln(name);
+        write('Р°РІС‚РѕСЂ: '); readln(author);
+        write('СЃРµСЂРёСЏ: '); readln(series);
+        write('РєРѕР»РёС‡РµСЃС‚РІРѕ: '); readln(counts);
+        write('РіРѕРґ РёР·РґР°РЅРёСЏ: '); readln(years);
+        write('РєРѕРґ РёР·РґР°С‚РµР»СЏ: '); readln(id_pub);
         query.CommandText := 'insert into books (id_lib,name,author,series,counts,years,id_pub) values (' + id_lib + ',''' + name + ''',''' + author + ''',''' + series + ''',' + counts + ',' + years + ',' + id_pub + ');';
         query.Connection := connect;
         connect.Open();
@@ -162,7 +162,7 @@ begin
       end;
     3: 
       begin
-        write('код книги: '); readln(id_book);
+        write('РєРѕРґ РєРЅРёРіРё: '); readln(id_book);
         query.CommandText := 'delete FROM books where books.id_book = ' + id_book + ';';
         query.Connection := connect;
         connect.Open();
@@ -173,14 +173,14 @@ begin
       end;
     4: 
       begin
-        write('номер книги: '); readln(id_book);
-        write('номер библиотеки: '); readln(id_lib);
-        write('название: '); readln(name);
-        write('автор: '); readln(author);
-        write('серия: '); readln(series);
-        write('количество: '); readln(counts);
-        write('год издания: '); readln(years);
-        write('код издателя: '); readln(id_pub);
+        write('РЅРѕРјРµСЂ РєРЅРёРіРё: '); readln(id_book);
+        write('РЅРѕРјРµСЂ Р±РёР±Р»РёРѕС‚РµРєРё: '); readln(id_lib);
+        write('РЅР°Р·РІР°РЅРёРµ: '); readln(name);
+        write('Р°РІС‚РѕСЂ: '); readln(author);
+        write('СЃРµСЂРёСЏ: '); readln(series);
+        write('РєРѕР»РёС‡РµСЃС‚РІРѕ: '); readln(counts);
+        write('РіРѕРґ РёР·РґР°РЅРёСЏ: '); readln(years);
+        write('РєРѕРґ РёР·РґР°С‚РµР»СЏ: '); readln(id_pub);
         query.CommandText := 'update books set name = ''' + name + ''', series = ''' + series + ''', author = ''' + author + ''', id_lib = ' + id_lib + ', counts = ' + counts + ', years = ' + years + ',id_pub = ' + id_pub + ' where books.id_book = ' + id_book;
         query.Connection := connect;
         connect.Open();
@@ -191,37 +191,37 @@ begin
       end;
     5: 
       begin
-        writeln('id книги: ');
+        writeln('id РєРЅРёРіРё: ');
         readln(id_book);
         query.CommandText := 'select * from books where id_book like ' + id_book; 
       end;
     6: 
       begin
-        writeln('серия: ');
+        writeln('СЃРµСЂРёСЏ: ');
         readln(series);
         query.CommandText := 'select * from books where series like ''' + series + '''';
       end;
     7: 
       begin
-        writeln('автор: ');
+        writeln('Р°РІС‚РѕСЂ: ');
         readln(author);
         query.CommandText := 'select * from books where author like ''' + author + '''';
       end;
     8: 
       begin
-        writeln('название: ');
+        writeln('РЅР°Р·РІР°РЅРёРµ: ');
         readln(name);
         query.CommandText := 'select * from books where name like ''' + name + '''';
       end;
     9: 
       begin
-        writeln('код издателя: ');
+        writeln('РєРѕРґ РёР·РґР°С‚РµР»СЏ: ');
         readln(id_pub);
         query.CommandText := 'select * from books where id_pub = ' + id_pub;
       end;
     10: 
       begin
-        writeln('год издания: ');
+        writeln('РіРѕРґ РёР·РґР°РЅРёСЏ: ');
         readln(years);
         query.CommandText := 'select * from books where years = ' + years;
       end;
@@ -230,14 +230,14 @@ begin
   connect.Open();
   MyReader := query.ExecuteReader();
   if flag then begin
-    write('id библиотеки':15);
-    write('название':15);
-    write('автор':15);
-    write('серия':15);
-    write('количество':15);
-    write('год издания':15);
-    write('код издателя':15);
-    write('код книги':15);
+    write('id Р±РёР±Р»РёРѕС‚РµРєРё':15);
+    write('РЅР°Р·РІР°РЅРёРµ':15);
+    write('Р°РІС‚РѕСЂ':15);
+    write('СЃРµСЂРёСЏ':15);
+    write('РєРѕР»РёС‡РµСЃС‚РІРѕ':15);
+    write('РіРѕРґ РёР·РґР°РЅРёСЏ':15);
+    write('РєРѕРґ РёР·РґР°С‚РµР»СЏ':15);
+    write('РєРѕРґ РєРЅРёРіРё':15);
     writeln;
     while MyReader.Read() do 
     begin
@@ -254,18 +254,18 @@ begin
   end
   else
   begin
-    write('введите адрес файла (при совпадении имён существующий файл будет перезаписан): ');
+    write('РІРІРµРґРёС‚Рµ Р°РґСЂРµСЃ С„Р°Р№Р»Р° (РїСЂРё СЃРѕРІРїР°РґРµРЅРёРё РёРјС‘РЅ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ С„Р°Р№Р» Р±СѓРґРµС‚ РїРµСЂРµР·Р°РїРёСЃР°РЅ): ');
     readln(path);
     assign(textFile, path);
     rewrite(textFile);
-    write(textFile, 'id библиотеки':15);
-    write(textFile, 'название':15);
-    write(textFile, 'автор':15);
-    write(textFile, 'серия':15);
-    write(textFile, 'количество':15);
-    write(textFile, 'год издания':15);
-    write(textFile, 'код издателя':15);
-    writeln(textFile, 'код книги':15);
+    write(textFile, 'id Р±РёР±Р»РёРѕС‚РµРєРё':15);
+    write(textFile, 'РЅР°Р·РІР°РЅРёРµ':15);
+    write(textFile, 'Р°РІС‚РѕСЂ':15);
+    write(textFile, 'СЃРµСЂРёСЏ':15);
+    write(textFile, 'РєРѕР»РёС‡РµСЃС‚РІРѕ':15);
+    write(textFile, 'РіРѕРґ РёР·РґР°РЅРёСЏ':15);
+    write(textFile, 'РєРѕРґ РёР·РґР°С‚РµР»СЏ':15);
+    writeln(textFile, 'РєРѕРґ РєРЅРёРіРё':15);
     writeln(textFile, '-----------------------------------------------------------------------------------------------------------------------------');
     while MyReader.Read() do 
     begin
@@ -303,9 +303,9 @@ begin
     1: query.CommandText := 'select * from publishers';
     2: 
       begin
-        write('название: '); readln(name);
-        write('адрес: '); readln(adress);
-        write('телефон: '); readln(phone);
+        write('РЅР°Р·РІР°РЅРёРµ: '); readln(name);
+        write('Р°РґСЂРµСЃ: '); readln(adress);
+        write('С‚РµР»РµС„РѕРЅ: '); readln(phone);
         query.CommandText := 'insert into publishers (name,adress,phone) values (''' + name + ''',''' + adress + ''',' + phone + ');';
         query.Connection := connect;
         connect.Open();
@@ -316,7 +316,7 @@ begin
       end;
     3: 
       begin
-        write('код издателя: '); readln(id_pub);
+        write('РєРѕРґ РёР·РґР°С‚РµР»СЏ: '); readln(id_pub);
         query.CommandText := 'delete FROM publishers where publishers.id_pub = ' + id_pub + ';';
         query.Connection := connect;
         connect.Open();
@@ -327,10 +327,10 @@ begin
       end;
     4:
       begin
-        write('код издателя: '); readln(id_pub);
-        write('название: '); readln(name);
-        write('адрес: '); readln(adress);
-        write('телефон: '); readln(phone);
+        write('РєРѕРґ РёР·РґР°С‚РµР»СЏ: '); readln(id_pub);
+        write('РЅР°Р·РІР°РЅРёРµ: '); readln(name);
+        write('Р°РґСЂРµСЃ: '); readln(adress);
+        write('С‚РµР»РµС„РѕРЅ: '); readln(phone);
         query.CommandText := 'update publishers set name = ''' + name + ''', adress = ''' + adress + ''', phone = ' + phone + ' where publishers.id_pub = ' + id_pub;
         query.Connection := connect;
         connect.Open();
@@ -344,10 +344,10 @@ begin
   connect.Open();
   MyReader := query.ExecuteReader();
   if flag then begin
-    write('id издателя':15);
-    write('название':15);
-    write('адрес':15);
-    writeln('телефон':15);
+    write('id РёР·РґР°С‚РµР»СЏ':15);
+    write('РЅР°Р·РІР°РЅРёРµ':15);
+    write('Р°РґСЂРµСЃ':15);
+    writeln('С‚РµР»РµС„РѕРЅ':15);
     writeln;
     while MyReader.Read() do 
     begin
@@ -360,14 +360,14 @@ begin
   end
   else
   begin
-    write('введите адрес файла (при совпадении имён существующий файл будет перезаписан): ');
+    write('РІРІРµРґРёС‚Рµ Р°РґСЂРµСЃ С„Р°Р№Р»Р° (РїСЂРё СЃРѕРІРїР°РґРµРЅРёРё РёРјС‘РЅ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ С„Р°Р№Р» Р±СѓРґРµС‚ РїРµСЂРµР·Р°РїРёСЃР°РЅ): ');
     readln(path);
     assign(textFile, path);
     rewrite(textFile);
-    write(textFile, 'id издателя':15);
-    write(textFile, 'название':15);
-    write(textFile, 'адрес':15);
-    writeln(textFile, 'телефон':15);
+    write(textFile, 'id РёР·РґР°С‚РµР»СЏ':15);
+    write(textFile, 'РЅР°Р·РІР°РЅРёРµ':15);
+    write(textFile, 'Р°РґСЂРµСЃ':15);
+    writeln(textFile, 'С‚РµР»РµС„РѕРЅ':15);
     writeln(textFile, '-----------------------------------------------------------------------------------------------------------------------------');
     while MyReader.Read() do 
     begin
@@ -401,24 +401,24 @@ begin
     1: query.CommandText := 'select * from readers';
     2:
       begin
-        write('фамилия: '); readln(fam);
+        write('С„Р°РјРёР»РёСЏ: '); readln(fam);
         query.CommandText := 'select * from readers where fam like ''' + fam + ''';';
       end;
     3:
       begin
-        write('номер читательского билета: '); readln(id_ticket);
+        write('РЅРѕРјРµСЂ С‡РёС‚Р°С‚РµР»СЊСЃРєРѕРіРѕ Р±РёР»РµС‚Р°: '); readln(id_ticket);
         query.CommandText := 'select * from readers where id_ticket like ' + id_ticket + ';';
       end;
     4: 
       begin
-        write('имя: '); readln(nam);
-        write('фамилия: '); readln(fam);
-        writeln('Дата рождения.');
-        write('год: '); readln(temp); birth := temp + '-';
-        write('месяц: '); readln(temp); birth := birth + temp + '-';
-        write('день: '); readln(temp); birth := birth + temp;
-        write('адрес: '); readln(adress);
-        write('телефон: '); readln(phone);
+        write('РёРјСЏ: '); readln(nam);
+        write('С„Р°РјРёР»РёСЏ: '); readln(fam);
+        writeln('Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ.');
+        write('РіРѕРґ: '); readln(temp); birth := temp + '-';
+        write('РјРµСЃСЏС†: '); readln(temp); birth := birth + temp + '-';
+        write('РґРµРЅСЊ: '); readln(temp); birth := birth + temp;
+        write('Р°РґСЂРµСЃ: '); readln(adress);
+        write('С‚РµР»РµС„РѕРЅ: '); readln(phone);
         query.CommandText := 'insert into readers (nam,fam,birth,adress,phone) values (''' + nam + ''',''' + fam + ''',''' + birth + ''',''' + adress + ''',' + phone + ');';
         query.Connection := connect;
         connect.Open();
@@ -429,7 +429,7 @@ begin
       end;
     5: 
       begin
-        write('номер читательского билета: '); readln(id_ticket);
+        write('РЅРѕРјРµСЂ С‡РёС‚Р°С‚РµР»СЊСЃРєРѕРіРѕ Р±РёР»РµС‚Р°: '); readln(id_ticket);
         query.CommandText := 'delete FROM readers where readers.id_ticket = ' + id_ticket + ';';
         query.Connection := connect;
         connect.Open();
@@ -440,15 +440,15 @@ begin
       end;
     6:
       begin
-        write('номер читательского билета: '); readln(id_ticket);
-        write('имя: '); readln(nam);
-        write('фамилия: '); readln(fam);
-        write('адрес: '); readln(adress);
-        write('телефон: '); readln(phone);
-        writeln('Дата рождения.');
-        write('год: '); readln(temp); birth := temp + '-';
-        write('месяц: '); readln(temp); birth := birth + temp + '-';
-        write('день: '); readln(temp); birth := birth + temp;
+        write('РЅРѕРјРµСЂ С‡РёС‚Р°С‚РµР»СЊСЃРєРѕРіРѕ Р±РёР»РµС‚Р°: '); readln(id_ticket);
+        write('РёРјСЏ: '); readln(nam);
+        write('С„Р°РјРёР»РёСЏ: '); readln(fam);
+        write('Р°РґСЂРµСЃ: '); readln(adress);
+        write('С‚РµР»РµС„РѕРЅ: '); readln(phone);
+        writeln('Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ.');
+        write('РіРѕРґ: '); readln(temp); birth := temp + '-';
+        write('РјРµСЃСЏС†: '); readln(temp); birth := birth + temp + '-';
+        write('РґРµРЅСЊ: '); readln(temp); birth := birth + temp;
         query.CommandText := 'update readers set nam = ''' + nam + ''', fam = ''' + fam + ''', adress = ''' + adress + ''', phone = ' + phone + ', birth = ''' + birth + ''' where readers.id_ticket = ' + id_ticket;
         query.Connection := connect;
         connect.Open();
@@ -462,12 +462,12 @@ begin
   connect.Open();
   MyReader := query.ExecuteReader();
   if flag then begin
-    write('номер карточки':20);
-    write('фамилия':20);
-    write('имя':20);
-    write('адрес':20);
-    write('дата рождения':20);
-    writeln('телефон':20);
+    write('РЅРѕРјРµСЂ РєР°СЂС‚РѕС‡РєРё':20);
+    write('С„Р°РјРёР»РёСЏ':20);
+    write('РёРјСЏ':20);
+    write('Р°РґСЂРµСЃ':20);
+    write('РґР°С‚Р° СЂРѕР¶РґРµРЅРёСЏ':20);
+    writeln('С‚РµР»РµС„РѕРЅ':20);
     writeln;
     while MyReader.Read() do 
     begin
@@ -482,16 +482,16 @@ begin
   end
   else
   begin
-    write('введите адрес файла (при совпадении имён существующий файл будет перезаписан): ');
+    write('РІРІРµРґРёС‚Рµ Р°РґСЂРµСЃ С„Р°Р№Р»Р° (РїСЂРё СЃРѕРІРїР°РґРµРЅРёРё РёРјС‘РЅ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ С„Р°Р№Р» Р±СѓРґРµС‚ РїРµСЂРµР·Р°РїРёСЃР°РЅ): ');
     readln(path);
     assign(textFile, path);
     rewrite(textFile);
-    write(textFile, 'номер карточки':20);
-    write(textFile, 'фамилия':20);
-    write(textFile, 'имя':20);
-    write(textFile, 'адрес':20);
-    write(textFile, 'дата рождения':20);
-    writeln(textFile, 'телефон':20);
+    write(textFile, 'РЅРѕРјРµСЂ РєР°СЂС‚РѕС‡РєРё':20);
+    write(textFile, 'С„Р°РјРёР»РёСЏ':20);
+    write(textFile, 'РёРјСЏ':20);
+    write(textFile, 'Р°РґСЂРµСЃ':20);
+    write(textFile, 'РґР°С‚Р° СЂРѕР¶РґРµРЅРёСЏ':20);
+    writeln(textFile, 'С‚РµР»РµС„РѕРЅ':20);
     writeln(textFile, '-----------------------------------------------------------------------------------------------------------------------------');
     while MyReader.Read() do 
     begin
@@ -526,31 +526,31 @@ begin
     1: query.CommandText := 'select * from returns';
     2:
       begin
-        write('номер библиотеки: '); readln(id_lib);
+        write('РЅРѕРјРµСЂ Р±РёР±Р»РёРѕС‚РµРєРё: '); readln(id_lib);
         query.CommandText := 'select * from returns where id_lib like ''' + id_lib + ''';';
       end;
     3:
       begin
-        write('номер читательского билета: '); readln(id_ticket);
+        write('РЅРѕРјРµСЂ С‡РёС‚Р°С‚РµР»СЊСЃРєРѕРіРѕ Р±РёР»РµС‚Р°: '); readln(id_ticket);
         query.CommandText := 'select * from returns where id_ticket like ' + id_ticket + ';';
       end;
     4: 
       begin
-        write('номер читательского билета: '); readln(id_ticket);
-        write('номер библиотеки: '); readln(id_lib);
-        write('номер книги: '); readln(id_book);
-        writeln('Дата выдачи.');
-        write('год: '); readln(temp); issues := temp + '-';
-        write('месяц: '); readln(temp); issues := issues + temp + '-';
-        write('день: '); readln(temp); issues := issues + temp;
-        writeln('Дата возврата.');
-        write('год: '); readln(temp); returns := temp + '-';
-        write('месяц: '); readln(temp); returns := returns + temp + '-';
-        write('день: '); readln(temp); returns := returns + temp;
-        writeln('Реальная дата возврата.');
-        write('год: '); readln(temp); real_returns := temp + '-';
-        write('месяц: '); readln(temp); real_returns := real_returns + temp + '-';
-        write('день: '); readln(temp); real_returns := real_returns + temp;
+        write('РЅРѕРјРµСЂ С‡РёС‚Р°С‚РµР»СЊСЃРєРѕРіРѕ Р±РёР»РµС‚Р°: '); readln(id_ticket);
+        write('РЅРѕРјРµСЂ Р±РёР±Р»РёРѕС‚РµРєРё: '); readln(id_lib);
+        write('РЅРѕРјРµСЂ РєРЅРёРіРё: '); readln(id_book);
+        writeln('Р”Р°С‚Р° РІС‹РґР°С‡Рё.');
+        write('РіРѕРґ: '); readln(temp); issues := temp + '-';
+        write('РјРµСЃСЏС†: '); readln(temp); issues := issues + temp + '-';
+        write('РґРµРЅСЊ: '); readln(temp); issues := issues + temp;
+        writeln('Р”Р°С‚Р° РІРѕР·РІСЂР°С‚Р°.');
+        write('РіРѕРґ: '); readln(temp); returns := temp + '-';
+        write('РјРµСЃСЏС†: '); readln(temp); returns := returns + temp + '-';
+        write('РґРµРЅСЊ: '); readln(temp); returns := returns + temp;
+        writeln('Р РµР°Р»СЊРЅР°СЏ РґР°С‚Р° РІРѕР·РІСЂР°С‚Р°.');
+        write('РіРѕРґ: '); readln(temp); real_returns := temp + '-';
+        write('РјРµСЃСЏС†: '); readln(temp); real_returns := real_returns + temp + '-';
+        write('РґРµРЅСЊ: '); readln(temp); real_returns := real_returns + temp;
         query.CommandText := 'insert into returns (id_ticket,id_lib,id_book,issues,returns,real_returns) values (' + id_ticket + ',' + id_lib + ',' + id_book + ',''' + issues + ''',''' + returns + ''','''+real_returns+''');';
         query.Connection := connect;
         connect.Open();
@@ -561,7 +561,7 @@ begin
       end;
     5: 
       begin
-        write('номер выдачи-возврата: '); readln(id_return);
+        write('РЅРѕРјРµСЂ РІС‹РґР°С‡Рё-РІРѕР·РІСЂР°С‚Р°: '); readln(id_return);
         query.CommandText := 'delete FROM returns where returns.id_return = ' + id_return + ';';
         query.Connection := connect;
         connect.Open();
@@ -572,22 +572,22 @@ begin
       end;
     6:
       begin
-        write('номер выдачи-возврата: '); readln(id_return);
-        write('номер читательского билета: '); readln(id_ticket);
-        write('номер библиотеки: '); readln(id_lib);
-        write('номер книги: '); readln(id_book);
-        writeln('Дата выдачи.');
-        write('год: '); readln(temp); issues := temp + '-';
-        write('месяц: '); readln(temp); issues := issues + temp + '-';
-        write('день: '); readln(temp); issues := issues + temp;
-        writeln('Дата возврата.');
-        write('год: '); readln(temp); returns := temp + '-';
-        write('месяц: '); readln(temp); returns := returns + temp + '-';
-        write('день: '); readln(temp); returns := returns + temp;
-        writeln('Реальная дата возврата.');
-        write('год: '); readln(temp); real_returns := temp + '-';
-        write('месяц: '); readln(temp); real_returns := real_returns + temp + '-';
-        write('день: '); readln(temp); real_returns := real_returns + temp;
+        write('РЅРѕРјРµСЂ РІС‹РґР°С‡Рё-РІРѕР·РІСЂР°С‚Р°: '); readln(id_return);
+        write('РЅРѕРјРµСЂ С‡РёС‚Р°С‚РµР»СЊСЃРєРѕРіРѕ Р±РёР»РµС‚Р°: '); readln(id_ticket);
+        write('РЅРѕРјРµСЂ Р±РёР±Р»РёРѕС‚РµРєРё: '); readln(id_lib);
+        write('РЅРѕРјРµСЂ РєРЅРёРіРё: '); readln(id_book);
+        writeln('Р”Р°С‚Р° РІС‹РґР°С‡Рё.');
+        write('РіРѕРґ: '); readln(temp); issues := temp + '-';
+        write('РјРµСЃСЏС†: '); readln(temp); issues := issues + temp + '-';
+        write('РґРµРЅСЊ: '); readln(temp); issues := issues + temp;
+        writeln('Р”Р°С‚Р° РІРѕР·РІСЂР°С‚Р°.');
+        write('РіРѕРґ: '); readln(temp); returns := temp + '-';
+        write('РјРµСЃСЏС†: '); readln(temp); returns := returns + temp + '-';
+        write('РґРµРЅСЊ: '); readln(temp); returns := returns + temp;
+        writeln('Р РµР°Р»СЊРЅР°СЏ РґР°С‚Р° РІРѕР·РІСЂР°С‚Р°.');
+        write('РіРѕРґ: '); readln(temp); real_returns := temp + '-';
+        write('РјРµСЃСЏС†: '); readln(temp); real_returns := real_returns + temp + '-';
+        write('РґРµРЅСЊ: '); readln(temp); real_returns := real_returns + temp;
         query.CommandText := 'update returns set id_ticket = ' + id_ticket + ', id_lib = ' + id_lib + ', id_book = ' + id_book + ', issues = ''' + issues + ''', returns = ''' + returns + ''', real_returns = '''+real_returns+''' where returns.id_return = ' + id_return;
         query.Connection := connect;
         connect.Open();
@@ -601,13 +601,13 @@ begin
   connect.Open();
   MyReader := query.ExecuteReader();
   if flag then begin
-    write('номер карточки':15);
-    write('номер книги':15);
-    write('выдача':20);
-    write('возврат':20);
-    write('реальный возврат':20);
-    write('номер выдачи-возврата':20);
-    write('номер библиотеки':15);
+    write('РЅРѕРјРµСЂ РєР°СЂС‚РѕС‡РєРё':15);
+    write('РЅРѕРјРµСЂ РєРЅРёРіРё':15);
+    write('РІС‹РґР°С‡Р°':20);
+    write('РІРѕР·РІСЂР°С‚':20);
+    write('СЂРµР°Р»СЊРЅС‹Р№ РІРѕР·РІСЂР°С‚':20);
+    write('РЅРѕРјРµСЂ РІС‹РґР°С‡Рё-РІРѕР·РІСЂР°С‚Р°':20);
+    write('РЅРѕРјРµСЂ Р±РёР±Р»РёРѕС‚РµРєРё':15);
     writeln;
     while MyReader.Read() do 
     begin
@@ -623,17 +623,17 @@ begin
   end
   else
   begin
-    write('введите адрес файла (при совпадении имён существующий файл будет перезаписан): ');
+    write('РІРІРµРґРёС‚Рµ Р°РґСЂРµСЃ С„Р°Р№Р»Р° (РїСЂРё СЃРѕРІРїР°РґРµРЅРёРё РёРјС‘РЅ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ С„Р°Р№Р» Р±СѓРґРµС‚ РїРµСЂРµР·Р°РїРёСЃР°РЅ): ');
     readln(path);
     assign(textFile, path);
     rewrite(textFile);
-    write(textFile, 'номер карточки':15);
-    write(textFile, 'номер книги':15);
-    write(textFile, 'выдача':20);
-    write(textFile, 'возврат':20);
-    write(textFile, 'реальный возврат':20);
-    write(textFile, 'номер выдачи-возврата':20);
-    writeLn(textFile, 'номер библиотеки':15);
+    write(textFile, 'РЅРѕРјРµСЂ РєР°СЂС‚РѕС‡РєРё':15);
+    write(textFile, 'РЅРѕРјРµСЂ РєРЅРёРіРё':15);
+    write(textFile, 'РІС‹РґР°С‡Р°':20);
+    write(textFile, 'РІРѕР·РІСЂР°С‚':20);
+    write(textFile, 'СЂРµР°Р»СЊРЅС‹Р№ РІРѕР·РІСЂР°С‚':20);
+    write(textFile, 'РЅРѕРјРµСЂ РІС‹РґР°С‡Рё-РІРѕР·РІСЂР°С‚Р°':20);
+    writeLn(textFile, 'РЅРѕРјРµСЂ Р±РёР±Р»РёРѕС‚РµРєРё':15);
     writeln(textFile, '-----------------------------------------------------------------------------------------------------------------------------');
     while MyReader.Read() do 
     begin
@@ -663,24 +663,24 @@ begin
   flag := true;
   while flag do 
   begin
-    writeln('Выберите действие:');
-    writeln('1 - Библиотеки');
-    writeln('2 - книги');
-    writeln('3 - издатели');
-    writeln('4 - картотека читателей');
-    writeln('5 - информация о выдачах-возвратах книг');
-    if consoleWriter then writeln('10 - выводить в файл') else writeln('10 - выводить здесь');
-    writeln('0 - выход из программы');
+    writeln('Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:');
+    writeln('1 - Р‘РёР±Р»РёРѕС‚РµРєРё');
+    writeln('2 - РєРЅРёРіРё');
+    writeln('3 - РёР·РґР°С‚РµР»Рё');
+    writeln('4 - РєР°СЂС‚РѕС‚РµРєР° С‡РёС‚Р°С‚РµР»РµР№');
+    writeln('5 - РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РІС‹РґР°С‡Р°С…-РІРѕР·РІСЂР°С‚Р°С… РєРЅРёРі');
+    if consoleWriter then writeln('10 - РІС‹РІРѕРґРёС‚СЊ РІ С„Р°Р№Р»') else writeln('10 - РІС‹РІРѕРґРёС‚СЊ Р·РґРµСЃСЊ');
+    writeln('0 - РІС‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹');
     readln(n);
     writeln('---------------------------------------------------------------------------');
     case n of
       1: 
         begin
-          writeln('1 - вывод информации о библиотеках');
-          writeln('2 - добавление новой библиотеки в базу');
-          writeln('3 - удаление библиотеки из списка');
-          writeln('4 - обновление информации о выбранной библиотеке');
-          writeln('0 - выход в главное меню');
+          writeln('1 - РІС‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ Р±РёР±Р»РёРѕС‚РµРєР°С…');
+          writeln('2 - РґРѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕР№ Р±РёР±Р»РёРѕС‚РµРєРё РІ Р±Р°Р·Сѓ');
+          writeln('3 - СѓРґР°Р»РµРЅРёРµ Р±РёР±Р»РёРѕС‚РµРєРё РёР· СЃРїРёСЃРєР°');
+          writeln('4 - РѕР±РЅРѕРІР»РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РІС‹Р±СЂР°РЅРЅРѕР№ Р±РёР±Р»РёРѕС‚РµРєРµ');
+          writeln('0 - РІС‹С…РѕРґ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ');
           readln(m);
           case m of
             1: selectFromLibrary(consoleWriter);
@@ -692,17 +692,17 @@ begin
         end;
       2: 
         begin
-          writeln('1 - вывод информации о книгах в выбранной библиотеке');
-          writeln('2 - добавление новой книги в каталог библиотеки');
-          writeln('3 - удаление книги из списка');
-          writeln('4 - обновление информации о выбранной книге');
-          writeln('5 - вывод информации о выбранной книге');
-          writeln('6 - поиск по серии');
-          writeln('7 - поиск по автору');
-          writeln('8 - поиск по названию');
-          writeln('9 - поиск по коду издателя');
-          writeln('10 - поиск по году издания');
-          writeln('0 - выход в главное меню');
+          writeln('1 - РІС‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РєРЅРёРіР°С… РІ РІС‹Р±СЂР°РЅРЅРѕР№ Р±РёР±Р»РёРѕС‚РµРєРµ');
+          writeln('2 - РґРѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕР№ РєРЅРёРіРё РІ РєР°С‚Р°Р»РѕРі Р±РёР±Р»РёРѕС‚РµРєРё');
+          writeln('3 - СѓРґР°Р»РµРЅРёРµ РєРЅРёРіРё РёР· СЃРїРёСЃРєР°');
+          writeln('4 - РѕР±РЅРѕРІР»РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РІС‹Р±СЂР°РЅРЅРѕР№ РєРЅРёРіРµ');
+          writeln('5 - РІС‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РІС‹Р±СЂР°РЅРЅРѕР№ РєРЅРёРіРµ');
+          writeln('6 - РїРѕРёСЃРє РїРѕ СЃРµСЂРёРё');
+          writeln('7 - РїРѕРёСЃРє РїРѕ Р°РІС‚РѕСЂСѓ');
+          writeln('8 - РїРѕРёСЃРє РїРѕ РЅР°Р·РІР°РЅРёСЋ');
+          writeln('9 - РїРѕРёСЃРє РїРѕ РєРѕРґСѓ РёР·РґР°С‚РµР»СЏ');
+          writeln('10 - РїРѕРёСЃРє РїРѕ РіРѕРґСѓ РёР·РґР°РЅРёСЏ');
+          writeln('0 - РІС‹С…РѕРґ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ');
           readln(m);
           case m of
             1: selectFromBooks(consoleWriter, 1);
@@ -720,11 +720,11 @@ begin
         end;
       3: 
         begin
-          writeln('1 - вывод информации об издателях');
-          writeln('2 - новый издатель');
-          writeln('3 - удаление издателя');
-          writeln('4 - обновление информации о выбранном издателе');
-          writeln('0 - выход в главное меню');
+          writeln('1 - РІС‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё РѕР± РёР·РґР°С‚РµР»СЏС…');
+          writeln('2 - РЅРѕРІС‹Р№ РёР·РґР°С‚РµР»СЊ');
+          writeln('3 - СѓРґР°Р»РµРЅРёРµ РёР·РґР°С‚РµР»СЏ');
+          writeln('4 - РѕР±РЅРѕРІР»РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РІС‹Р±СЂР°РЅРЅРѕРј РёР·РґР°С‚РµР»Рµ');
+          writeln('0 - РІС‹С…РѕРґ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ');
           readln(m);
           case m of
             1: selectFromPublisher(consoleWriter, 1);
@@ -736,13 +736,13 @@ begin
         end;
       4:
         begin
-          writeln('1 - вывод информации о всех зарегистрированных читателях');
-          writeln('2 - поиск по фамилии');
-          writeln('3 - поиск по номеру записи');
-          writeln('4 - новый читатель');
-          writeln('5 - удаление читателя');
-          writeln('6 - обновление информации о выбранном читателе');
-          writeln('0 - выход в главное меню');
+          writeln('1 - РІС‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РІСЃРµС… Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… С‡РёС‚Р°С‚РµР»СЏС…');
+          writeln('2 - РїРѕРёСЃРє РїРѕ С„Р°РјРёР»РёРё');
+          writeln('3 - РїРѕРёСЃРє РїРѕ РЅРѕРјРµСЂСѓ Р·Р°РїРёСЃРё');
+          writeln('4 - РЅРѕРІС‹Р№ С‡РёС‚Р°С‚РµР»СЊ');
+          writeln('5 - СѓРґР°Р»РµРЅРёРµ С‡РёС‚Р°С‚РµР»СЏ');
+          writeln('6 - РѕР±РЅРѕРІР»РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РІС‹Р±СЂР°РЅРЅРѕРј С‡РёС‚Р°С‚РµР»Рµ');
+          writeln('0 - РІС‹С…РѕРґ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ');
           readln(m);
           case m of
             1: selectFromReaders(consoleWriter, 1);
@@ -757,13 +757,13 @@ begin
       
       5:
         begin
-          writeln('1 - вывод информации о всех выдачах и возвратах');
-          writeln('2 - выдачи-возвраты в выбранной библиотеке');
-          writeln('3 - выдачи-возвраты по выбранной карточке читателя');
-          writeln('4 - новая выдача-возврат');
-          writeln('5 - удаление информации');
-          writeln('6 - обновление информации о выдаче-возврате');
-          writeln('0 - выход в главное меню');
+          writeln('1 - РІС‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РІСЃРµС… РІС‹РґР°С‡Р°С… Рё РІРѕР·РІСЂР°С‚Р°С…');
+          writeln('2 - РІС‹РґР°С‡Рё-РІРѕР·РІСЂР°С‚С‹ РІ РІС‹Р±СЂР°РЅРЅРѕР№ Р±РёР±Р»РёРѕС‚РµРєРµ');
+          writeln('3 - РІС‹РґР°С‡Рё-РІРѕР·РІСЂР°С‚С‹ РїРѕ РІС‹Р±СЂР°РЅРЅРѕР№ РєР°СЂС‚РѕС‡РєРµ С‡РёС‚Р°С‚РµР»СЏ');
+          writeln('4 - РЅРѕРІР°СЏ РІС‹РґР°С‡Р°-РІРѕР·РІСЂР°С‚');
+          writeln('5 - СѓРґР°Р»РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё');
+          writeln('6 - РѕР±РЅРѕРІР»РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РІС‹РґР°С‡Рµ-РІРѕР·РІСЂР°С‚Рµ');
+          writeln('0 - РІС‹С…РѕРґ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ');
           readln(m);
           case m of
             1: selectFromReturns(consoleWriter, 1);
@@ -778,15 +778,15 @@ begin
       10: 
         begin
           consoleWriter := not (consoleWriter); 
-          write('Результаты запросов будут выводиться в '); 
-          if consoleWriter then write('консоли') else writeln('файл');
+          write('Р РµР·СѓР»СЊС‚Р°С‚С‹ Р·Р°РїСЂРѕСЃРѕРІ Р±СѓРґСѓС‚ РІС‹РІРѕРґРёС‚СЊСЃСЏ РІ '); 
+          if consoleWriter then write('РєРѕРЅСЃРѕР»Рё') else writeln('С„Р°Р№Р»');
         end;
       0:
         begin
-          flag := false; writeln('До встречи!')
+          flag := false; writeln('Р”Рѕ РІСЃС‚СЂРµС‡Рё!')
         end;
     else
-      writeln( 'Команда не распознана. Повторите ввод.');
+      writeln( 'РљРѕРјР°РЅРґР° РЅРµ СЂР°СЃРїРѕР·РЅР°РЅР°. РџРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ.');
     end;
     writeln('---------------------------------------------------------------------------');
   end;
